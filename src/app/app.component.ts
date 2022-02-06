@@ -1,10 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { AccountsService } from './shared/accounts.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  title = 'Password-Manager';
+export class AppComponent implements OnInit {
+  @Output() accounts: { name: string; loggin: string; password: string }[];
+
+  constructor(private accountsService: AccountsService) {}
+
+  ngOnInit(): void {
+    this.accounts = this.accountsService.accounts;
+  }
 }
