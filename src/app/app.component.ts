@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AccountsService } from './shared/accounts.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { AccountsService } from './shared/accounts.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  @Output() accounts: { name: string; loggin: string; password: string }[];
+  accounts: { name: string; loggin: string; password: string }[];
 
   constructor(private accountsService: AccountsService) {}
 

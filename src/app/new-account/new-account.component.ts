@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AccountsService } from '../shared/accounts.service';
 
 @Component({
@@ -7,8 +7,6 @@ import { AccountsService } from '../shared/accounts.service';
   styleUrls: ['./new-account.component.css'],
 })
 export class NewAccountComponent implements OnInit {
-  @Output() account = new EventEmitter();
-
   constructor(private accountsService: AccountsService) {}
 
   ngOnInit(): void {}
