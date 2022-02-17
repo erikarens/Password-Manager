@@ -29,6 +29,10 @@ export class AccountsService {
 
   constructor() {}
 
+  GetAccounts() {
+    return this.accounts;
+  }
+
   onAddAccount(name: string, loggin: string, password: string) {
     this.accounts.push({ name: name, loggin: loggin, password: password });
     console.log('Neuer Account wurde hinzugefügt: ' + name);

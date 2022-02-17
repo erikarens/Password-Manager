@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AccountsService } from '../shared/accounts.service';
 
 @Component({
@@ -7,11 +7,13 @@ import { AccountsService } from '../shared/accounts.service';
   styleUrls: ['./accounts.component.css'],
 })
 export class AccountsComponent implements OnInit {
-  @Input() accounts: [];
+  accounts: { name: string; loggin: string; password: string }[];
 
   constructor(private accountsService: AccountsService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.accounts = this.accountsService.GetAccounts();
+  }
 
   deleteAccount(id: number) {
     this.accountsService.onDeleteAccount(id);
